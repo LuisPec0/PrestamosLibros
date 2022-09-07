@@ -16,6 +16,7 @@ public class LibroControlador {
         this.servicio = servicio;
     }
 
+    @CrossOrigin(origins = "http://localhost:8080/")
     @GetMapping("/Listarlibro")
     public ArrayList<Libro>listar(){
         return servicio.listarLibros();
