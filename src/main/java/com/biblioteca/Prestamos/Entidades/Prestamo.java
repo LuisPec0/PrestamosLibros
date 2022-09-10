@@ -2,13 +2,13 @@ package com.biblioteca.Prestamos.Entidades;
 
 
 import javax.persistence.*;
-import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Table(name = "Prestamo")
 public class Prestamo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
     private int idPrestamo;
     @ManyToOne
@@ -17,13 +17,19 @@ public class Prestamo {
     @ManyToOne
     @JoinColumn(name = "ISBN")
     private Libro libro;
+    @Temporal(TemporalType.DATE)
     @Column(nullable = false)
-    private Calendar fecha;
+    private Date fecha;
+
+    @PrePersist
+    public void prePersist(){
+        this.fecha = new Date();
+    }
 
     public Prestamo() {
     }
 
-    public Prestamo(int idPrestamo, Estudiantes estudiante, Libro libro, Calendar fecha) {
+    public Prestamo(int idPrestamo, Estudiantes estudiante, Libro libro, Date fecha) {
         this.idPrestamo = idPrestamo;
         this.estudiante = estudiante;
         this.libro = libro;
@@ -54,11 +60,11 @@ public class Prestamo {
         this.libro = libro;
     }
 
-    public Calendar getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(Calendar fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
