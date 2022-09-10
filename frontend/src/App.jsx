@@ -1,23 +1,17 @@
-import { useEffect, useState } from "react"
+import { Route, Routes } from "react-router-dom"
+import { Menudesktop, BookList } from "./components"
 import { listarlibros } from "./services/db"
+import './app.css'
 
 function App() {
-
-  const [data, setData] = useState([])
-
-  useEffect(() => {
-    getData()
-  },[])
-
-  const getData = async() =>{
-    const datas = await listarlibros()
-    console.log(datas)
-    return datas
-  }
-
   return (
     <div className="App">
-
+      <Menudesktop />
+      <Routes>
+        <Route path='/' element={''} />
+        <Route path='/bookList' element={<BookList />} />
+        <Route path='/addbook' element={''} />
+      </Routes>      
     </div>
   )
 }
