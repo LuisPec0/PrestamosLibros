@@ -60,18 +60,6 @@ public class LibroServicio {
             return "El libro no se pudo actualizar";
         }
     }
-<<<<<<< HEAD
-
-    public String eliminarLibro(String isbn){
-        if(buscarLibro(isbn).isPresent()){
-            repositorio.deleteById(isbn);
-            return "El libro se eliminó con exito";
-        }else {
-            return "El libro a eliminar no existe";
-        }
-    }
-=======
->>>>>>> f9bc76f08e93611e42b0b8d06f719c16613bdb89
 
     public String eliminarLibro(String isbn){
         if(buscarLibro(isbn).isPresent()){
