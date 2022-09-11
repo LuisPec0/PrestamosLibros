@@ -1,0 +1,13 @@
+.container__cards{
+    justify-content: center;
+    display: flex;
+    margin-top: 100px;
+}
+
+.cards{
+    background-color: #68c6da;
+    width: 15rem;
+    padding: 10px;
+    margin-right: 30px;
+    border-radius: 10px;
+}
